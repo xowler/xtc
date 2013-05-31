@@ -12,6 +12,7 @@ test.cc:
 
 libccxtc_${ARCH}.a: ccxtc_${ARCH}.o xdrfile_${ARCH}.o
 	ar rcs libccxtc_${ARCH}.a xdrfile_trr_${ARCH}.o xdrfile_xtc_${ARCH}.o xdrfile_${ARCH}.o ccxtc_${ARCH}.o
+	cp libccxtc_${ARCH}.a ../lib/
 
 xdrfile_${ARCH}.o: ../deps/xdrfile-1.1.1/${ARCH}/lib/libxdrfile.a
 	ar x ../deps/xdrfile-1.1.1//${ARCH}/lib/libxdrfile.a

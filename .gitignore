@@ -11,3 +11,6 @@
 *.lai
 *.la
 *.a
+
+deps/xdrfile-1.1.1/
+src/test
