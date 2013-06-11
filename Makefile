@@ -4,6 +4,10 @@
 tgts = deps src
 
 all: ${tgts}
+	mkdir -p lib
+	cp src/lib*a install
+	cp src/ccxtc.h install
+	
 
 clean:
 	-cd deps; make clean

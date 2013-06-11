@@ -25,6 +25,7 @@ namespace ccxtc{
     
     xtc::~xtc(){
     	xdrfile_close((XDRFILE*)this->fp);	
+        delete this->x;
     }
     
     
