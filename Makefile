@@ -4,7 +4,7 @@
 tgts = deps src
 
 all: ${tgts}
-	mkdir -p lib
+	mkdir -p install
 	cp src/lib*a install
 	cp src/ccxtc.h install
 	
