@@ -1,4 +1,4 @@
-.PHONY: clean all deps src
+.PHONY: clean all deps src install
 
 
 tgts = deps src
@@ -14,3 +14,6 @@ deps:
 
 src: deps
 	cd src; make
+
+
+install:
