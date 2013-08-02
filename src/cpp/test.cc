@@ -28,7 +28,7 @@ int main(void){
     check(err, 1, "Does not exist");
 
 
-    xtc f("test.xtc");
+    xtc f("../test.xtc");
 	check(f.natoms, 314,"Number of atoms");
 	
 

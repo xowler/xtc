@@ -1,6 +1,10 @@
 .PHONY: clean all
 
-all: xdrfile-1.1.1/x86_64/lib/libxdrfile.a
+
+fake:
+	make all ARCH=$$( echo $${OSTYPE}_$$(uname -m) | sed 's/-/_/g')
+
+all: xdrfile-1.1.1/${ARCH}/lib/libxdrfile.a
 
 clean:
 	rm -Rf xdrfile-1.1.1/
@@ -9,10 +13,10 @@ xdrfile-1.1.1 :
 	tar xf xdrfile-1.1.1.tar.gz
 
 
-xdrfile-1.1.1/x86_64/lib/libxdrfile.a: xdrfile-1.1.1
+xdrfile-1.1.1/${ARCH}/lib/libxdrfile.a: xdrfile-1.1.1
 	{ cd xdrfile-1.1.1;\
-		mkdir $$OSTYPE-$$(uname -m);\
-		./configure  --enable-static  --enable-shared --prefix=$$PWD/$$OSTYPE-$$(uname -m) --with-pic;\
+		mkdir ${ARCH};\
+		./configure  --enable-static  --enable-shared --prefix=$$PWD/${ARCH} --with-pic;\
 		make;\
 		make install;\
 		make test;\

@@ -2,7 +2,7 @@
 CPP = g++ -Wall -O3
 
 fake:
-	make all ARCH=$$OSTYPE-$$(uname -m) 
+	make all ARCH=$$( echo $${OSTYPE}_$$(uname -m) | sed 's/-/_/g')
 
 all: test_${ARCH}
 	./test_${ARCH}
@@ -20,7 +20,8 @@ libccxtc_${ARCH}.a: ccxtc_${ARCH}.o xdrfile_${ARCH}.o
 
 xdrfile_${ARCH}.o:
 	@echo "Extracting xdr libs"
-	@ar x ../../deps/xdrfile-1.1.1//${ARCH}/lib/libxdrfile.a
+	echo ${ARCH}
+	@ar x ../../deps/xdrfile-1.1.1/${ARCH}/lib/libxdrfile.a
 	@mv xdrfile.o xdrfile_${ARCH}.o
 	@mv xdrfile_trr.o xdrfile_trr_${ARCH}.o
 	@mv xdrfile_xtc.o xdrfile_xtc_${ARCH}.o
@@ -37,4 +38,4 @@ test.cc:
 .PHONY: clean
 
 clean:
-	rm -f *o *a test __.SYMD*
+	rm -f *o *a test_* __.SYMD*
