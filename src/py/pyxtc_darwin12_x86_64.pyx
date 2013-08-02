@@ -15,7 +15,7 @@ cdef extern from "ccxtc.h" namespace "ccxtc":
 cdef extern from "string.h":# namespace "std":
     void *memcpy(void *, void *, size_t )
 
-cdef class pyxtc_linux_gnu_x86_64:
+cdef class pyxtc_darwin12_x86_64:
     cdef xtc *thisptr
     cpdef np.ndarray xx
 
