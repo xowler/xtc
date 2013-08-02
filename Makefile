@@ -5,13 +5,15 @@ tgts = deps src
 
 all: ${tgts}
 	mkdir -p install
-	cp src/lib*a install
-	cp src/ccxtc.h install
+	cp src/cpp/lib*a install
+	cp src/cpp/ccxtc.h install
 	
 
 clean:
+	-rm -Rf install
 	-cd deps; make clean
-	-cd src; make clean
+	-cd src/cpp; make clean
+	-cd src/py; make clean
 
 deps: 
 	cd deps; make
