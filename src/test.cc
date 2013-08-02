@@ -34,7 +34,7 @@ int main(void){
 
     int nframes=0;
     while(1){
-        if(f.next() == 0)
+        if(f.next())
             nframes = nframes + 1;
         else
             break;

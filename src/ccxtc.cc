@@ -25,6 +25,7 @@ namespace ccxtc{
     
     xtc::~xtc(){
     	xdrfile_close((XDRFILE*)this->fp);	
+        delete this->x;
     }
     
     
@@ -33,7 +34,7 @@ namespace ccxtc{
     	float prec;
     	float box[3][3];
     
-    	return read_xtc((XDRFILE*)this->fp, this->natoms, &step, &this->time, box, this->x, &prec);
+    	return read_xtc((XDRFILE*)this->fp, this->natoms, &step, &this->time, box, this->x, &prec)==0;
     }
 
 }
