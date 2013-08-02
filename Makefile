@@ -11,9 +11,9 @@ all: ${tgts}
 
 clean:
 	-rm -Rf install
-	-cd deps; make clean
-	-cd src/cpp; make clean
-	-cd src/py; make clean
+	-cd deps && make clean
+	-cd src/cpp && make clean
+	-cd src/py &&  make clean
 
 deps: 
 	cd deps; make

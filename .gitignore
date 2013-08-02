@@ -13,5 +13,5 @@
 *.a
 
 deps/xdrfile-1.1.1/
-src/test
+src/cpp/test_*
 install
